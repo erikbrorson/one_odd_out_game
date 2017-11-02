@@ -1,7 +1,9 @@
-class word_game:
-   
+class Word_game:
+   """
+   An instance of the odd one out game
+   """
     def __init__(self, file_path):
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r') as file:
             self.words = f.readline().rstrip().split(' ')
             self.odd_one_out = f.readline().rstrip()
 
@@ -15,7 +17,7 @@ class word_game:
     def make_a_guess(self, guess):
         if guess not in self.words:
             print('The guessed word is not in the list')
-            return(False)
+            return False
         if guess == self.odd_one_out:
             print('You were right!')
             self.exit()

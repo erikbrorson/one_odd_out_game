@@ -1,8 +1,10 @@
 
 from word_game import word_game
 
-class player:
-
+class Player:
+    """
+    A player which plays games
+    """
     number_of_games = 0
     points = 0
 
@@ -39,7 +41,7 @@ class player:
 def main():
     # Create a player
     player_name = input('What is your name?')
-    player1 = player(name=player_name)
+    player1 = Player(name=player_name)
     
     # Starting a new game
     player1.new_game('games/Am-I-Is-The.txt')

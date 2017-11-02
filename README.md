@@ -9,7 +9,7 @@ The concept of the game is simple: given 4 words, choose the word that doesn't b
 There are a few prepared game files in the games/ folder. They can be created using the create_new_pairs.py file. Note that it requires a pretrained word2vec model such as [this one](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit).
 
 
-## Usage
+## Usage
 
 - game_enginge.py 
 

@@ -1,11 +1,11 @@
 class Word_game:
-   """
-   An instance of the odd one out game
-   """
+    """
+    An instance of the odd one out game
+    """
     def __init__(self, file_path):
         with open(file_path, 'r') as file:
-            self.words = f.readline().rstrip().split(' ')
-            self.odd_one_out = f.readline().rstrip()
+            self.words = file.readline().rstrip().split(' ')
+            self.odd_one_out = file.readline().rstrip()
 
     def print_words(self):
         print('The words are: {}, {}, {}, and {}'.format(
@@ -23,7 +23,7 @@ class Word_game:
             self.exit()
             return(True)
         else:
-            print('You guessed the wrong word, try again!')
+            print('You guessed the wrong word!')
             return(False)
 
     def exit(self):

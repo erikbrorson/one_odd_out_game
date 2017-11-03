@@ -83,7 +83,7 @@ def menu(player_name):
             print('You need to pick an integer')
         if choice == 1:
             player.new_game('games/' + choose_game())
-            input('Make a guess')
+            guess = input('Make a guess')
             player.make_a_guess(guess=guess)
         # print progress
         if choice == 2:

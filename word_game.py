@@ -28,4 +28,3 @@ class Word_game:
 
     def exit(self):
         print('You guessed the right word which was \"{}\", well done!'.format(self.odd_one_out))
-

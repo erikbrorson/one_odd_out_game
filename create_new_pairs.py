@@ -6,18 +6,20 @@ from scipy import spatial
 Creates new games using word embeddings imported from the Google Word2Vec model
 """
 
+
 def cosine_dist(first_word, second_word):
     """
     Computes the cosine distance between two vectors
     """
     return(spatial.distance.cosine(first_word, second_word))
 
+
 class game_generator:
 
     word_dict = {}
     odd_one_out = ''
     sum_of_distance = {}
-    
+
     def __init__(self, words, file_url_to_w2v_model='/Volumes/PICS/pyProject/GoogleNews-vectors-negative300.bin.gz'):
         self.words = words
         self.words.sort()
@@ -32,9 +34,8 @@ class game_generator:
 
     def extract_word_dict(self):
         """
-        Computes 
+        Finds the word2vec embeddings of the words
         """
-
         print('Computing the word dictionary')
         for word in self.words:
             try:
@@ -48,12 +49,10 @@ class game_generator:
         """
         self.words = words
         self.words.sort()
-
         # cleaning
         self.word_dict = {}
         self.odd_one_out = ''
         self.sum_of_distance = {}
-
 
     def print_words(self):
         print('The words are {}, {}, {}, and {}'.format(
@@ -61,7 +60,7 @@ class game_generator:
 
     def find_odd_out(self):
         """
-        Find the odd word by returning the word with the highest sum of distances 
+        Find the odd word by returning the word with the highest sum of distances
         """
         for word_one in self.word_dict.keys():
             ssd = 0
@@ -78,7 +77,6 @@ class game_generator:
         Writes games to file
         """
         file_name = '-'.join(self.words)
-
         file = open('games/'+file_name+'.txt', 'w')
         file.write(' '.join(self.words) + '\n')
         file.write(self.odd_one_out + '\n')
@@ -87,9 +85,10 @@ class game_generator:
             file.write('\n')
         file.close()
 
-def main():
 
-    file_url_to_w2v_model = '/Volumes/PICS/pyProject/GoogleNews-vectors-negative300.bin.gz' # change this to local file path
+def main():
+      # change this to local file path
+    file_url_to_w2v_model = '/Volumes/PICS/pyProject/GoogleNews-vectors-negative300.bin.gz'
     
     generator = game_generator(words=['King', 'Queen', 'Prince', 'Cleaner'])
     generator.import_model()
